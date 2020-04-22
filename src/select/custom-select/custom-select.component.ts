@@ -627,7 +627,7 @@ export class ThySelectCustomComponent
             }
             return;
         }
-        // else {
+        //  else {
         //     if (this.selectionModel.selected.length > 0) {
         //         this.selectionModel.clear();
         //     }
@@ -639,7 +639,15 @@ export class ThySelectCustomComponent
                         return itemValue === option.thyValue;
                     });
                     if (index >= 0) {
-                        this.selectionModel.select(option);
+                        if (!this.selectionModel.isSelected(option)) {
+                            const exist = this.selectionModel.selected.find(
+                                optionComponent => optionComponent.thyValue === option.thyValue
+                            );
+                            if (exist) {
+                                this.selectionModel.deselect(exist);
+                            }
+                            this.selectionModel.select(option);
+                        }
                     }
                 });
             }

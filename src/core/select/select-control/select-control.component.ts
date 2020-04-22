@@ -57,7 +57,7 @@ export class ThySelectControlComponent implements OnInit {
         }
         if (!this.panelOpened && this.thyShowSearch) {
             Promise.resolve(null).then(() => {
-                this.setInputValue('');
+                // this.setInputValue('');
             });
         }
         this.setSelectControlClass();
@@ -95,7 +95,7 @@ export class ThySelectControlComponent implements OnInit {
         this.selectedOptions = value;
         if (this.panelOpened && this.thyShowSearch) {
             Promise.resolve(null).then(() => {
-                this.setInputValue('');
+                // this.setInputValue('');
             });
             this.inputElement.nativeElement.focus();
         }

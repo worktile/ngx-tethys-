@@ -19,19 +19,36 @@ import { timer } from 'rxjs';
     templateUrl: './server-search.component.html'
 })
 export class CustomSelectServerSearchComponent implements OnInit {
-    optionData = taskTypes;
+    optionData = [];
 
-    selectedTaskType: string;
+    selectedTaskTypes = ['test'];
 
     constructor(private cdr: ChangeDetectorRef) {}
 
     ngOnInit() {
-        this.selectedTaskType = this.optionData[0].name;
+        this.thyOnSearch('');
     }
 
     thyOnSearch(value: string) {
+        // fake api response data
         timer(100).subscribe(() => {
-            this.optionData = taskTypes.filter(option => option.display_name.includes(value));
+            this.optionData = taskTypes
+                .filter(option => option.display_name.includes(value))
+                .map(option => {
+                    return { ...option };
+                });
+            const fixOption = this.selectedTaskTypes
+                .filter(taskTypeValue => {
+                    return taskTypeValue === 'test';
+                })
+                .map(_id => {
+                    return {
+                        display_name: '使用者需要填充的Option',
+                        name: 'task',
+                        _id
+                    };
+                });
+            this.optionData = fixOption.concat(this.optionData);
         });
     }
 }

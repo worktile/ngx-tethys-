@@ -6,6 +6,7 @@
   [thyServerSearch]="true"
   [thyMode]="'multiple'"
   style="width:500px"
+  [(ngModel)]="selectedTaskTypes"
 >
   <thy-option *ngFor="let item of optionData" [thyValue]="item._id" [thyLabelText]="item.display_name"></thy-option>
 </thy-custom-select>
