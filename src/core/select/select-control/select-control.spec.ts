@@ -49,7 +49,7 @@ class BasicSelectControlComponent {
     selectControlComponent: ThySelectControlComponent;
 }
 
-describe('ThySelectControl', () => {
+fdescribe('ThySelectControl', () => {
     function configureThySelectControlTestingModule(declarations: any[]) {
         TestBed.configureTestingModule({
             imports: [ThyFormModule, ReactiveFormsModule, FormsModule, ThyIconModule, ThySelectCommonModule],

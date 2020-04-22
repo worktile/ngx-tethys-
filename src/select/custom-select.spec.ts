@@ -468,7 +468,7 @@ class SelectWithThySortComparatorComponent {
     @ViewChildren(ThyOptionComponent) options: QueryList<ThyOptionComponent>;
 }
 
-describe('ThyCustomSelect', () => {
+fdescribe('ThyCustomSelect', () => {
     let overlayContainer: OverlayContainer;
     let overlayContainerElement: HTMLElement;
     let platform: Platform;

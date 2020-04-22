@@ -34,7 +34,7 @@ import {
     CdkConnectedOverlay
 } from '@angular/cdk/overlay';
 import { takeUntil, startWith, take, switchMap } from 'rxjs/operators';
-import { Subject, Observable, merge, defer, Subscription } from 'rxjs';
+import { Subject, Observable, merge, defer, Subscription, timer } from 'rxjs';
 import { getFlexiblePositions } from '../../core/overlay';
 import { ThySelectOptionGroupComponent } from '../../core/option/group/option-group.component';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -291,8 +291,9 @@ export class ThySelectCustomComponent
             )
             .subscribe(() => {
                 this.resetOptions();
-                this.initializeSelection();
+                // this.initializeSelection();
                 this.initKeyManager();
+                this.changeDetectorRef.markForCheck();
             });
     }
 

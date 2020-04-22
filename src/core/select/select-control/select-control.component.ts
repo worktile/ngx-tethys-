@@ -229,9 +229,11 @@ export class ThySelectControlComponent implements OnInit {
     }
 
     setInputValue(value: string) {
-        this.inputValue = value;
-        this.updateWidth();
-        this.thyOnSearch.emit(this.inputValue);
+        if (value !== this.inputValue) {
+            this.inputValue = value;
+            this.updateWidth();
+            this.thyOnSearch.emit(this.inputValue);
+        }
     }
 
     handleBackspace(event: Event) {
