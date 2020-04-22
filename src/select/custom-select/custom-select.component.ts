@@ -291,7 +291,7 @@ export class ThySelectCustomComponent
             )
             .subscribe(() => {
                 this.resetOptions();
-                // this.initializeSelection();
+                this.initializeSelection();
                 this.initKeyManager();
                 this.changeDetectorRef.markForCheck();
             });
@@ -626,11 +626,12 @@ export class ThySelectCustomComponent
                 this.changeDetectorRef.markForCheck();
             }
             return;
-        } else {
-            if (this.selectionModel.selected.length > 0) {
-                this.selectionModel.clear();
-            }
         }
+        // else {
+        //     if (this.selectionModel.selected.length > 0) {
+        //         this.selectionModel.clear();
+        //     }
+        // }
         if (this.isMultiple) {
             if (isArray(modalValue)) {
                 this.options.forEach(option => {
